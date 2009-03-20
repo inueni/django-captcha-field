@@ -1,0 +1,45 @@
+--------------------------------------------------------------------------------------------
+django-captcha-field
+Django-captcha field is a simple and easy to use CAPTCHA application for django framework.
+
+Copyright (c) 2009 Inueni Ltd.
+--------------------------------------------------------------------------------------------
+
+
+SETTINGS
+--------------------------------------------------------------------------------------------
+
+This go into your project settings.py file:
+
+CAPTCHA_IMAGES_PATH:
+Absolute path to location that will hold generated CAPTCHA images. Make sure to use a trailing slash.
+
+CAPTCHA_IMAGES_URL:
+URL that points to location of stored CAPTCHA images. Make sure to use a trailing slash.
+
+CAPTCHA_FONT:
+TrueType font used for rendering letter and numbers on CAPTCHA images.
+
+CAPTCHA_BASE_IMAGE:
+Image to be used as background for generated CAPTCHA images.
+
+Default background image and selection of DejaVu fonts are included in the package.
+
+
+
+USAGE
+--------------------------------------------------------------------------------------------
+
+Make sure all of the above settings are specified and that _CAPTCHA_IMAGES_PATH_ is writable by your application. 
+Add captcha module to your project or somewhere on python.path.
+
+
+from django import forms
+from captcha.fields import CaptchaField
+
+class MyForm(forms.Form):
+        captcha = CaptchaField('Are you human?')
+
+
+And that is it, it's that simple.
+
